@@ -29,7 +29,11 @@ const build = (map: Map, x: number, y: number, building: Building): void => {
 }
 
 // Test building
-build(map, 3, 3, 'FARM')
+build(map, 2, 2, 'FARM')
 console.log(map)
+
+// Here is ment to be a random number generator beetween 1 and 8.
+// And give the output (for now)
+
 // Structures that you can't build on have a 1/8 chanse of spawning
 // Ocean 1/15 1 or 2 oceans per map
