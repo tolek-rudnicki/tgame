@@ -60,3 +60,9 @@ const map: Map = new Array<Array<Field>>()
 init(map, mapSize, 'PLAINS')
 build(map, 3, 3, 'FARM')
 console.log(render(map, mapSize))
+
+// Here is ment to be a random number generator beetween 1 and 8.
+// And give the output (for now)
+
+// Structures that you can't build on have a 1/8 chanse of spawning
+// Ocean 1/15 1 or 2 oceans per map
