@@ -2,7 +2,7 @@
 type Building = 'NONE' | 'FARM'
 
 // Areas that you can't build in
-type Non_Building_Blocks = 'MOUNTAINS' | 'BEACH' | 'OCEAN'
+type Non_Building_Blocks = 'MOUNTAINS' | 'BEACH' | 'OCEAN' | 'VOLCANO'
 
 // Map
 type Field = {
@@ -34,3 +34,5 @@ const build = (map: Map, x: number, y: number, building: Building): void => {
 // Test building
 build(map, 3, 3, 'FARM')
 console.log(map)
+// Structures that you can't build on have a 1/8 chanse of spawning
+// 
