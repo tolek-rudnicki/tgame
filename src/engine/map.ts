@@ -1,11 +1,8 @@
 // Landscape blocks
-type Block = 'PLAINS' | 'DESERT' | 'ICE' | 'CLAY';
+type Block = 'PLAINS' | 'DESERT' | 'ICE' | 'CLAY' | 'MOUNTAINS' | 'BEACH' | 'OCEAN' | 'VOLCANO'
 
 // Buildings
 type Building = 'NONE' | 'FARM'
-
-// Areas that you can build in
-type Non_Building_Blocks = 'MOUNTAINS' | 'BEACH' | 'OCEAN'
 
 // Map
 type Field = {
@@ -14,10 +11,10 @@ type Field = {
 }
 
 // Map size
-const mapSize = 10;
+const mapSize = 5;
 type Map = Array<Array<Field>>;
 
-// Generate blocks untill hit the border (Map Size)
+// Generate uniform map
 const init = (map: Map, size: number, block: Block): void => {
     for (let x = 0; x < size; ++x) {
         map[x] = new Array<Field>()
@@ -50,7 +47,7 @@ const render = (map: Map, size: number): string => {
             for (let i = 0; i < tileSize; ++i) {
                 const offset = y * tileSize + i
                 if (!display[offset]) display[offset] = "";
-                display[offset] += ch + ch + (i === 1 ? map[x][y].building.substr(0, 1) : ch) + ch + ch + "  ";
+                display[offset] += ch + ch + (i === 1 ? map[x][y].building.substr(0, 1).replace("N", ch) : ch) + ch + ch + "  ";
             }
             if (x === size - 1) display[y * tileSize + tileSize - 1] += "\n";
         }
