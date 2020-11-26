@@ -1,12 +1,9 @@
 // Buildings
 type Building = 'NONE' | 'FARM'
 
-// Areas that you can't build in
-type Non_Building_Blocks = 'MOUNTAINS' | 'BEACH' | 'OCEAN' | 'VOLCANO'
-
 // Map
 type Field = {
-    kind: 'PLAINS' | 'DESERT' | 'ICE' | 'CLAY';
+    kind: 'PLAINS' | 'DESERT' | 'ICE' | 'CLAY' | 'MOUNTAINS' | 'BEACH' | 'OCEAN' | 'VOLCANO'
     building: Building;
 }
 
@@ -35,4 +32,4 @@ const build = (map: Map, x: number, y: number, building: Building): void => {
 build(map, 3, 3, 'FARM')
 console.log(map)
 // Structures that you can't build on have a 1/8 chanse of spawning
-// 
+// Ocean 1/15 1 or 2 oceans per map
