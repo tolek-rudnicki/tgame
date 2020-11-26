@@ -11,7 +11,7 @@ type Field = {
 }
 
 // Map size
-const mapSize = 10;
+const mapSize = 5;
 type Map = Array<Array<Field>>;
 const map: Map = new Array<Array<Field>>();
 
