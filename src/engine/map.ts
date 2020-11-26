@@ -1,7 +1,7 @@
 // Buildings
 type Building = 'NONE' | 'FARM'
 
-// Areas that you can build in
+// Areas that you can't build in
 type Non_Building_Blocks = 'MOUNTAINS' | 'BEACH' | 'OCEAN'
 
 // Map
