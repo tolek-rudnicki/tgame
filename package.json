@@ -7,9 +7,10 @@
     "test": "test"
   },
   "dependencies": {
-    "tslint": "^6.1.3"
+    "axios": "^0.21.0",
+    "tslint": "^6.1.3",
+    "typescript": "^4.1.2"
   },
-  "devDependencies": {},
   "scripts": {
     "build": "mkdir -p dist && rm -Rf dist/* && tsc -p .",
     "build:start": "mkdir -p dist && rm -Rf dist/* && tsc -p . && node dist/server.js",
@@ -25,5 +26,8 @@
   },
   "keywords": [],
   "author": "Michał Niedźwiedzki",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "ts-node": "^9.0.0"
+  }
 }
