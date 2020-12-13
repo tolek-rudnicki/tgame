@@ -57,8 +57,18 @@ export class GameMap {
     }
 
     public build(x: number, y: number, building: Building): void {
-        if (this.map[x][y].block === 'NONE' && this.map[x][y].building === undefined)
+        if (this.map[x][y].block === 'NONE' && this.map[x][y].building === undefined) {
+            building.placeOnMap(x, y);
             this.map[x][y].building = building;
+        }
+    }
+
+    public tick(): void {
+        for (let x = 0; x < this.size; ++x) {
+            for (let y = 0; y < this.size; ++y) {
+                this.map[x][y].building?.work();
+            }
+        }
     }
 
     public render(): string {
