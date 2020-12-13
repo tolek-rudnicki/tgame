@@ -1,4 +1,3 @@
-import { Map } from "typescript";
 
 export type Product = 'FOOD' | 'ORE' | 'GAS' | 'CRYSTALS';
 export type ProductInputs = { [key in Product]: number };
