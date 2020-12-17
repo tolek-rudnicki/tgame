@@ -17,3 +17,4 @@ console.log(warehouse);
 
 let i = 10;
 while (i--) map.tick();
+
