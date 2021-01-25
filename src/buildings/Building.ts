@@ -16,7 +16,6 @@ export abstract class Building {
     capacity: number = 50;
 
     outputs: Building[] = [];
-    lastOutput: number = 0;
 
     x: number | undefined;
     y: number | undefined;
@@ -62,35 +61,14 @@ export abstract class Building {
         const n = this.outputs.length;
         if (this.stock == 0 || n == 0) return;
 
-        let i = 0;
-        let totalExcess = 0;
-        while (this.stock > 0 && totalExcess < n) {
-            --this.stock
-            console.log(`Sending 1 ${this.product} to output ${i}`);
-            const excess = this.outputs[i].feed(this.product, 1)
-            if (excess > 0) {
-                console.log(`Got ${excess}`);
-                ++this.stock
-                ++totalExcess
-            }
-            ++i
-            if (i == n) {
-                i = 0;
-                totalExcess = 0
-            }
+        
+        const stockPerOutput = this.stock / n;
+        for (let i = 0; i < n; ++i) {
+            console.log(`Sending ${stockPerOutput} of ${this.product} to output ${i}`);
+            const excess = this.outputs[i].feed(this.product, stockPerOutput)
+            this.stock -= stockPerOutput - excess
+            console.log(`Excess ${excess}, stock left ${this.stock}`)
         }
-
-
-        // while (n > 0 && this.stock >= 1 && consumed) {
-        //     consumed = false;
-        //     const quantity = Math.floor(this.stock / n);
-        //     console.log(`Sending ${quantity} of ${this.product} to output ${this.lastOutput}`);
-        //     if (this.outputs[this.lastOutput].feed(this.product, quantity)) {
-        //         this.stock -= quantity;
-        //         consumed = true;
-        //     }
-        //     this.lastOutput = this.lastOutput >= n ? 0 : this.lastOutput + 1;
-        // }
     }
 
 }
