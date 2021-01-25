@@ -2,7 +2,7 @@
   "name": "tgame",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "dist/index.js",
   "directories": {
     "test": "test"
   },
@@ -12,9 +12,9 @@
     "typescript": "^4.1.2"
   },
   "scripts": {
-    "build": "mkdir -p dist && rm -Rf dist/* && tsc -p .",
-    "build:start": "mkdir -p dist && rm -Rf dist/* && tsc -p . && node dist/server.js",
-    "clean": "mkdir -p dist && rm -Rf dist/*",
+    "build": "mkdir dist; rm -Rf dist/* && tsc -p .",
+    "build:start": "mkdir dist; rm -Rf dist/* && tsc -p . && node dist/server.js",
+    "clean": "mkdir dist; rm -Rf dist/*",
     "lint": "node node_modules/tslint/bin/tslint -c tslint.json src/**/*.ts",
     "lint:fix": "node node_modules/tslint/bin/tslint -c tslint.json --fix src/**/*.ts",
     "start": "ts-node src/server.ts",
@@ -28,6 +28,7 @@
   "author": "Michał Niedźwiedzki",
   "license": "GPL-3.0",
   "devDependencies": {
+    "electron": "^11.2.1",
     "ts-node": "^9.0.0"
   }
 }
