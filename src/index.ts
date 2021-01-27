@@ -1,9 +1,12 @@
+// Imports
 import { app, BrowserWindow } from "electron"
 
 import { Farm } from "./buildings/Farm"
 import { Warehouse } from "./buildings/Warehouse";
 import { GameMap } from "./map/GameMap"
 
+
+// Window for app
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 800,
@@ -13,7 +16,7 @@ const createWindow = () => {
         }
     })
 
-    win.loadFile("index.html")
+    win.loadFile('dist/index.html')
     
 }
 
@@ -31,15 +34,17 @@ app.on('activate', () => {
   }
 })
 
+// Starting the game (console)
 const map = new GameMap('PLAINS', 10, 0, 5);
 const farm = new Farm();
 const warehouse = new Warehouse();
 warehouse.setProduct('FOOD');
 map.build(3, 3, farm);
 map.build(5, 4, warehouse);
+map.build(1, 1, warehouse);
 farm.connectTo(warehouse);
 
-
+// Map Render
 console.log(map.render());
 console.log(farm);
 console.log(warehouse);
